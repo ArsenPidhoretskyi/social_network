@@ -1,0 +1,6 @@
+{
+  "BASE_URL": "http://localhost:8000/api/v1",
+  "MAX_LIKES_PER_USER": 10,
+  "MAX_POSTS_PER_USER": 7,
+  "USERS_COUNT": 7
+}
