@@ -2,6 +2,7 @@ from drf_spectacular.utils import OpenApiResponse, extend_schema
 from rest_framework import status
 from rest_framework.generics import GenericAPIView
 from rest_framework.permissions import IsAuthenticated
+from rest_framework.serializers import Serializer
 
 from social_network.apps.accounts.api.permissions import IsNotAuthenticated
 from social_network.apps.accounts.api.serializers.login import LoginSerializer
@@ -22,7 +23,7 @@ class LoginView(GenericAPIView):
 
 class LogoutView(GenericAPIView):
     permission_classes = [IsAuthenticated]
-    serializer_class = lambda *args, **kwargs: None  # noqa # type: ignore # TODO Create EmptySerializer
+    serializer_class = Serializer
 
     @extend_schema(summary="Log out", tags=["Accounts"], responses={status.HTTP_204_NO_CONTENT: OpenApiResponse()})
     def post(self, request):
